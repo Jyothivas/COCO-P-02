@@ -1,0 +1,19 @@
+.wf {
+    outline: 1px solid white;
+    margin: 5px;
+    background: rgb(195, 214, 220);
+    width: 25%;
+}
+
+.ns {
+    background-color: silver;
+}
+
+.ns2 {
+    background-color: gray;
+}
+
+.row {
+    min-height: 50;
+    margin-bottom: 5px;
+}
