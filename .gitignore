@@ -16,3 +16,4 @@ application/logs/*
 !application/logs/.htaccess
 /vendor/
 bootstrap/login.css
+UI/1/FIRST.txt
