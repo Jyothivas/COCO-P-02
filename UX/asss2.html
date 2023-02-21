@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<head>
+    <title>New Employee</title>
+    <link type="text/css" rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <table>
+        <tr>
+            <td>
+                <form autocomplete="off" onsubmit="onFormSubmit()">
+                    <div>
+                        <label for="email">Email:</label><br>
+                        <input type="text" name="productCode" id="productCode">
+                    </div>
+                    <div>
+                        <label for="age">Age:</label><br>
+                        <input type="number" name="age" id="age">
+                    </div>
+                    <div>
+                        <label for="gender">Gender:</label><br>
+                        <input type="radio" id="Male" name="gender" value="male">
+                        <label for="male">Male</label><br>
+                        <input type="radio" id="female" name="gender" value="female">
+                          <label for="female">Female</label><br>
+                    </div>
+                    
+
+                    <div class="form_action--button">
+                        <input type="submit" value="Submit">
+                       
+                    </div>
+                </form>
+
+                <td>
+                    <table class="list" id="storeList">
+                        <thead>
+                            <tr>
+                                <th>Sr.No</th>
+                                <th>Email</th>
+                                <th>age</th>
+                                <th>Gender</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                        </tbody>
+                    </table>
+                </td>
+            </td>
+        </tr>
+    </table>
+    <script type="text/javascript" src="./script.js"></script>
+</body>
+</html>
