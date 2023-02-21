@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<head>
+    <title>Employee From</title>
+    <link type="text/css" rel="stylesheet" href="C:\wamp64\www\coco-p-02\COCO-P-02\UX\employee.css">
+</head>
+
+<body>
+    <table>
+        <tr>
+            <td>
+                <h1>New Employee</h1>
+                <form autocomplete="off" onsubmit="onFormSubmit()">
+                    <div>
+                        <label for="employeeid">Employee Id</label>
+                        <input type="text" name="employeeid" id="employeeid">
+                    </div>
+                    <div>
+                        <label for="email">Email</label>
+                        <input type="text" name="email" id="email">
+                    </div>
+                    <div>
+                        <label for="age">Age</label>
+
+                        <input type="number" name="age" id="age">
+                    </div>
+                    <div>
+                        
+                        <input type="radio" value="m" name="gender"/>Male
+                        <input type="radio" value="f" name="gender"/>Female
+                    </div>
+
+                    <div class="form_action--button">
+                        <input type="submit" value="Submit">
+                    </div>
+                </form>
+
+                <td>
+                    <table class="list" id="storeList">
+                        <thead>
+                            <tr>
+                                <th>Employee Id</th>
+                                <th>Email</th>
+                                <th>Age</th>
+                                <th>Gender</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                        </tbody>
+                    </table>
+                </td>
+            </td>
+        </tr>
+    </table>
+    <script type="text/javascript" src="C:\wamp64\www\coco-p-02\COCO-P-02\UX\employee.js"></script>
+</body>
+</html>
