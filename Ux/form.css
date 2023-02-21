@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Sansita+Swashed:wght@600&display=swap");
+
 .leftbody {
  display: flex;
   justify-content: center;
@@ -7,7 +7,7 @@
 }
 .SS {
   
-  border: 5px solid ;
+  border: 1px solid ;
   
 }
 .center {
