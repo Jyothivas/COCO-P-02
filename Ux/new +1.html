@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>New Employee Form</title>
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.min.css">
+ 
+  </style>
+</head>
+<body>
+  <h1>New Employee Form</h1>
+  <div class="page-border">
+    <form id="employee-form">
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"><br><br>
+
+      <label for="age">Age:</label>
+      <input type="number" id="age" name="age" required><br><br>
+
+      <label for="gender">Gender:</label>
+      <input type="radio" id="male" name="gender" value="male" required>
+      <label for="male">Male</label>
+      <input type="radio" id="female" name="gender" value="female" required>
+      <label for="female">Female</label><br><br>
+
+      <input type="submit" value="Add Employee">
+    </form>
+  </div>
+
+  <br>
+
+  <div class="page-border">
+    <table id="employee-table" class="display">
+      <thead>
+        <tr>
+          <th>Serial Number</th>
+          <th>Email</th>
+          <th>Age</th>
+          <th>Gender</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+      </tbody>
+    </table>
+  </div>
+
+  <script>
+    $(document).ready(function() {
+      var table = $('#employee-table').DataTable({
+        columnDefs: [{
+          orderable: false,
+          targets: -1
+        }]
+      });
+
+      $('#employee-form').submit(function(event) {
+        event.preventDefault();
+
+        var email = $('#email').val();
+        var age = $('#age').val();
+        var gender = $('input[name="gender"]:checked').val();
+        var serialNumber = table.data().length + 1;
+
+        table.row.add([serialNumber, email, age, gender, '<button class="delete-row">Delete</button>']).draw(false);
+
+        $('#email').val('');
+        $('#age').val('');
+        $('input[name="gender"]').prop('checked', false);
+      });
+
+      $('#employee-table tbody').on('click', '.delete-row', function() {
+        table.row($(this).parents('tr')).remove().draw();
+      });
+    });
+    function emailIsValid(email) {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+  }
+  </script>
+</body>
+</html>
