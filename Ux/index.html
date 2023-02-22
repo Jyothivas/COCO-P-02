@@ -10,13 +10,12 @@
   <link rel="stylesheet" href="https://cdn.datatables.net/1.13.1/css/jquery.dataTables.css">
   <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css">
 
-  <title>Project1-Employee form</title>
+  <title>Employee form</title>
 </head>
 
 <body>
 
   <div class="container-fluid ">
-    
     <div class="row text-center">
       <div class="column  ">
       <div class="leftbody col-sm-12 col-lg-6  SS  ">
@@ -115,17 +114,51 @@
 
 
 
-  <!-- Optional JavaScript -->
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <!-- Optional JavaScript -->
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
   <script src="https://code.jquery.com/jquery-3.6.1.slim.min.js" integrity="sha256-w8CvhFs7iHNVUtnSP0YKEg00p9Ih13rlL9zGqvLdePA=" crossorigin="anonymous"></script>
-  <script  src="form.js"></script>
+  <!--<script  src="form.js"></script> -->
  
 
   <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
   <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
   <script src="https://cdn.datatables.net/buttons/1.5.2/js/dataTables.buttons.min.js"></script>
   <script src="https://cdn.datatables.net/buttons/1.5.2/js/buttons.bootstrap4.min.js"></script>
-
+  <script>
+    
+    var employeeData = [  ]	
+  var tableofEmployee=  $(document).ready(function() {
+    var tableRefresh= $('#example').DataTable( {
+	        lengthChange: false,
+          data:employeeData,
+          'destroy': true,
+          'paging': true,
+          'lengthChange': true,
+          'searching': true,
+          'ordering': true,
+          'info': true,
+          'autoWidth': true 
+	    } );
+	  
+      });      
+  </script> 
 
  
 	  
