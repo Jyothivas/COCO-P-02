@@ -7,7 +7,6 @@
 }
 body{
   font-family: montserrat;
-  
 }
 /*carousal border*/
 * {
@@ -44,7 +43,6 @@ label.logo{
   font-weight: bold;
   
 }
-/* head */
 nav ul{
   float: right;
   margin-right: 20px;
@@ -110,22 +108,13 @@ a.active,a:hover{
     font-size: 30 px;
   }
   
-} /* border */
+}
 .sa{ 
   border: 1px solid rgb(24, 22, 22);
-   padding: 10px;
+   padding: 1px;
    
   }
-
-  .main-content h4 {
-    margin-bottom: 0px;
-    margin-top: 12px;
-    color: #fff;
-    font-size: 26px;
-    font-weight: 900;
-    letter-spacing: 0.25px;
-  }
- .main-button a {
+  .main-button a {
     display: inline-block;
     background-color: #f48840;
     color: #25dcbe;
@@ -137,7 +126,14 @@ a.active,a:hover{
     text-align: right;
     margin-top: 12px;
 }
-
+.main-content h4 {
+  margin-bottom: 0px;
+  margin-top: 12px;
+  color: #fff;
+  font-size: 26px;
+  font-weight: 900;
+  letter-spacing: 0.25px;
+}
 .main-content span {
   color: #f48840;
   font-size: 18px;
@@ -154,7 +150,10 @@ a.active,a:hover{
 .blog-posts {
   margin-top: 100px;
 }
-
+.blog-posts .blog-thumb img {
+  width: 100%;
+  overflow: hidden;
+}
 .blog-posts .down-content span {
   font-size: 18px;
   text-transform: uppercase;
