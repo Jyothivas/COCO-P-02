@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Submit Form</title>
+    <script src="table.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.4/css/jquery.dataTables.min.css">
+  </head>
+  <body>
+    <form id="myForm">
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email"><br><br>
+      <label for="age">Age:</label>
+      <input type="number" id="age" name="age"><br><br>
+      <label for="gender">Gender:</label>
+      <select id="gender" name="gender">
+        <option value="male">Male</option>
+        <option value="female">Female</option>
+        <option value="other">Other</option>
+      </select><br><br>
+      <button type="submit" id="submitBtn">Submit</button>
+    </form>
+    <table id="myTable">
+      <thead>
+        <tr>
+          <th>Email</th>
+          <th>Age</th>
+          <th>Gender</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+      </tbody>
+    </table>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.datatables.net/1.11.4/js/jquery.dataTables.min.js"></script>
+    <script>
+      $(document).ready(function() {
+        var dataArr = [];
+        var table = $('#myTable').DataTable({
+          "columnDefs": [
+            {
+              "targets": -1,
+              "data": null,
+              "defaultContent": "<button  class='deleteBtn'>Delete</button>"
+            }
+          ]
+        });
+        
+        $('#myForm').on('submit', function(e) {
+          e.preventDefault();
+          var email = $('#email').val();
+          var age = $('#age').val();
+          var gender = $('#gender').val();
+          dataArr.push([email, age, gender]);
+          table.row.add([email, age, gender]).draw();
+         // $('#myForm')[0].reset();
+        });
+        
+        $('#myTable tbody').on('click', '.editBtn', function() {
+          var row = table.row($(this).closest('tr'));
+          var rowData = row.data();
+          $('#email').val(rowData[0]);
+          $('#age').val(rowData[1]);
+          $('#gender').val(rowData[2]);
+          row.remove().draw();
+        });
+        
+        $('#myTable tbody').on('click', '.deleteBtn', function() {
+          var row = table.row($(this).closest('tr'));
+          var index = row.index();
+          dataArr.splice(index, 1);
+          row.remove().draw();
+        });
+      });
+      $('#myTable tbody').on('click', '.editBtn', function() {
+  var row = table.row($(this).closest('tr'));
+  var rowData = row.data();
+  var rowIndex = row.index();
+  
+  $('#email').val(rowData[0]);
+  $('#age').val(rowData[1]);
+  $('#gender').val(rowData[2]);
+  
+  $('#submitBtn').text('Update');
+  $('#myForm').off('submit').on('submit', function(e) {
+    e.preventDefault();
+    var email = $('#email').val();
+    var age = $('#age').val();
+    var gender = $('#gender').val();
+    dataArr[rowIndex] = [email, age, gender];
+    table.row(row).data([email, age, gender]).draw();
+    $('#myForm')[0].reset();
+    $('#submitBtn').text('Submit');
+    $('#myForm').off('submit').on('submit', function(e) {
+      e.preventDefault();
+      var email = $('#email').val();
+      var age = $('#age').val();
+      var gender = $('#gender').val();
+      dataArr.push([email, age, gender]);
+      table.row.add([email, age, gender]).draw();
+      //$('#myForm')[0].reset();
+    });
+  });
+});
+
+    </script>
+  </body>
+</html>
