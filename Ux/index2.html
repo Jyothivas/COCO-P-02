@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>New Employee</title>
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.css">
+  <style>
+    label {
+      display: block;
+      margin-bottom: 10px;
+    }
+    input[type="email"], input[type="text"], select {
+      display: block;
+      margin-bottom: 10px;
+      width: 50%;
+      padding: 5px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    input[type="radio"] {
+      display: inline-block;
+      margin-right: 10px;
+    }
+    button {
+      background-color: #007bff;
+      color: #fff;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <h1>New Employee</h1>
+  <form>
+    <label>Email</label>
+    <input type="email" name="email" required>
+    <label>Age</label>
+    <input type="text" name="age">
+    <label>Gender</label>
+    <input type="radio" name="gender" value="male" id="male">
+    <label for="male">Male</label>
+    <input type="radio" name="gender" value="female" id="female">
+    <label for="female">Female</label>
+    <button type="submit">Submit</button>
+  </form>
+
+  <table id="employee-table" class="display">
+    <thead>
+      <tr>
+        <th>Email</th>
+        <th>Age</th>
+        <th>Gender</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+  </table>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script type="text/javascript" src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.js"></script>
+  <script type="text/javascript">
+    $(document).ready(function() {
+      var table = $('#employee-table').DataTable({
+        "columnDefs": [{
+          "targets": -1,
+          "data": null,
+          "defaultContent": "<button class='delete-btn'>Delete</button>"
+        }]
+      });
+
+      $('form').on('submit', function(e) {
+        e.preventDefault();
+        var email = $('input[name="email"]').val();
+        var age = $('input[name="age"]').val();
+        var gender = $('input[name="gender"]:checked').val();
+        table.row.add([email, age, gender]).draw(false);
+        $('input[name="email"], input[name="age"]').val('');
+        $('input[name="gender"]').prop('checked', false);
+      });
+
+      $('#employee-table tbody').on('click', '.delete-btn', function() {
+        var row = table.row($(this).parents('tr'));
+        row.remove().draw(false);
+      });
+    });
+  </script>
+</body>
+</html>

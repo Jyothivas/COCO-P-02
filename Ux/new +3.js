@@ -25,10 +25,7 @@
             // Add row to DataTable
             table.row.add([serialNumber, email, age, gender, '<button class="deleteButton">Delete</button>']).draw(false);
 
-            // Clear form
-            $('#email').val('');
-            $('#age').val('');
-            $('input[name=gender]').prop('checked', false);
+            // Clear f
         });
 
         // Delete row from DataTable

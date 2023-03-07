@@ -42,28 +42,30 @@ for (i = 0; i < arr.length; i++) {
 
 changePosition(0, 2);
 
-function changePosition(pos1, pos2) {
-  if (pos1 >= 0 && pos2 >= 0 && pos1 < arr.length && pos2 < arr.length) {
-    let temp = arr[pos1];
-    arr[pos1] = arr[pos2];
-    arr[pos2] = temp;
+function changePosition(p1, p2) {
+  if (p1 >= 0 && p2 >= 0 && p1 < arr.length && p2 < arr.length) {
+    let temp = arr[p1];
+    arr[p1] = arr[p2];
+    arr[p2] = temp;
   }
 }
 
 console.log('-----change position----');
 for (i = 0; i < arr.length; i++) {
   console.log('display:' + (i + 1) + ':' + arr[i]);
-}
-
-deleteItem(1);
+} 
+deleteItem(0);
 
 function deleteItem(position) {
   if (position >= 0 && position < arr.length) {
-    arr.splice(position, 1);
+    for (var i = position; i < arr.length - 1; i++) {
+      arr[i] = arr[i + 1];
+    }
+    arr.length = arr.length - 1;
   }
 }
 
-console.log('-----delete----');
+console.log('-----delete ----');
 for (i = 0; i < arr.length; i++) {
   console.log('display:' + (i + 1) + ':' + arr[i]);
 }

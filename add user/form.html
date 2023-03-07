@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>User List</title>
+</head>
+<body>
+  <h1>User List</h1>
+  <ul id="userList"></ul>
+  
+  <form>
+    <fieldset>
+      <legend>Add User</legend>
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name"><br>
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email"><br>
+      <label for="age">Age:</label>
+      <input type="number" id="age" name="age"><br>
+      <button type="submit">Add</button>
+    </fieldset>
+  </form>
+  
+  <script>
+    let users = [
+      { name: "John Doe", email: "johndoe@example.com", age: 30 },
+      { name: "Jane Doe", email: "janedoe@example.com", age: 25 },
+      { name: "Bob Smith", email: "bobsmith@example.com", age: 40 },
+    ];
+    
+    let userList = document.getElementById("userList");
+    displayUserList(users, userList);
+    
+    let form = document.querySelector("form");
+    form.addEventListener("submit", function(event) {
+      event.preventDefault();
+      let name = document.getElementById("name").value;
+      let email = document.getElementById("email").value;
+      let age = document.getElementById("age").valueAsNumber;
+      let newUser = { name, email, age };
+      users.push(newUser);
+      displayUserList(users, userList);
+      form.reset();
+    });
+    
+    function displayUserList(users, userList) {
+      userList.innerHTML = ""; // Clear the list
+      for (let user of users) {
+        let li = document.createElement("li");
+        li.textContent = `${user.name} (${user.age}), email: ${user.email}`;
+        userList.appendChild(li);
+      }
+    }
+  </script>
+</body>
+</html>
+
+
+
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>User List</title>
+  </head>
+  <body>
+    <h1>User List</h1>
+    <ul id="userList"></ul>
+    
+    <form>
+      <fieldset>
+        <legend>Add User</legend>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name"><br>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email"><br>
+        <label for="age">Age:</label>
+        <input type="number" id="age" name="age"><br>
+        <button type="submit">Add</button>
+      </fieldset>
+    </form>
+
+    <form>
+      <fieldset>
+        <legend>Edit User</legend>
+        <label for="editIndex">Index:</label>
+        <input type="number" id="editIndex" name="editIndex"><br>
+        <label for="editName">Name:</label>
+        <input type="text" id="editName" name="editName"><br>
+        <label for="editEmail">Email:</label>
+        <input type="email" id="editEmail" name="editEmail"><br>
+        <label for="editAge">Age:</label>
+        <input type="number" id="editAge" name="editAge"><br>
+        <button type="submit">Save</button>
+      </fieldset>
+    </form>
+
+    <form>
+      <fieldset>
+        <legend>Change Position</legend>
+        <label for="fromIndex">From Index:</label>
+        <input type="number" id="fromIndex" name="fromIndex"><br>
+        <label for="toIndex">To Index:</label>
+        <input type="number" id="toIndex" name="toIndex"><br>
+        <button type="submit">Move</button>
+      </fieldset>
+    </form>
+
+    <form>
+      <fieldset>
+        <legend>Delete User</legend>
+        <label for="deleteIndex">Index:</label>
+        <input type="number" id="deleteIndex" name="deleteIndex"><br>
+        <button type="submit">Delete</button>
+      </fieldset>
+    </form>
+    
+    <script>
+      let users = [
+        { name: "John Doe", email: "johndoe@example.com", age: 30 },
+        { name: "Jane Doe", email: "janedoe@example.com", age: 25 },
+        { name: "Bob Smith", email: "bobsmith@example.com", age: 40 },
+      ];
+
+      let userList = document.getElementById("userList");
+      displayUserList(users, userList);
+
+      let addForm = document.querySelector("form:first-of-type");
+      addForm.addEventListener("submit", function(event) {
+        event.preventDefault();
+        let name = document.getElementById("name").value;
+        let email = document.getElementById("email").value;
+        let age = document.getElementById("age").valueAsNumber;
+        let newUser = { name, email, age };
+        users.push(newUser
+</script>
