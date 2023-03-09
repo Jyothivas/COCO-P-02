@@ -1,51 +1,88 @@
-.leftbody {
-    display: flex;
-     justify-content: center;
-     align-items: center;
-    
-   }
-   .SS {
-  
-    border: 1px solid ;
-    padding: 50px;
-    width: auto;
-   
-  } 
-
+/* Set box sizing to border-box for all elements */
 * {
-    box-sizing: border-box;
-  }
-  
-  /* Create two equal columns that floats next to each other */
-  .column {
-    float: left;
-    width: 50%;
-    padding: 1px;
-   
-  }
-  
-  /* Clear floats after the columns */
-  .row:after {
-    content: "";
-    display: table;
-    clear: both;
-  }
-  .center h1 {
-    font-size: 1.5em;
-    padding: 1px;
-    letter-spacing: 3px;
-    margin-bottom: 6px;
-   
-    
-  }
-  .center {
-    position: relative;
-    border-radius: 10px;
-  }
-  .center .inputbox [type="button"] {
-    width: 50%;
-    border-radius: 25px;
-    margin: 25px;
-    padding: 3px;
-    
-  }
+  box-sizing: border-box;
+}
+
+/* Center content within the left column */
+.leftbody {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Style the left column */
+.SS {
+  border: 1px solid #ccc;
+  padding: 2px;
+  width: auto;
+}
+
+/* Create two equal columns that float next to each other */
+.column {
+  float: left;
+  width: 50%;
+  padding: 20px;
+}
+
+/* Add a border to the body */
+body {
+  border: 1px solid #ccc;
+}
+
+/* Style the table */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+  border: 1px solid #ccc;
+}
+
+/* Style the table headers and cells */
+th, td {
+  text-align: left;
+  padding: 8px;
+  border: 1px solid #ccc;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Center the heading within the form */
+.center h1 {
+  font-size: 1.5em;
+  padding: 1px;
+  letter-spacing: 3px;
+  margin-bottom: 6px;
+}
+
+/* Style the form */
+.center {
+  position: relative;
+  border-radius: 10px;
+}
+
+/* Style the submit button within the form */
+.center .inputbox [type="submit"] {
+  width: 50%;
+  border-radius: 25px;
+  margin: 25px;
+  padding: 3px;
+}
+
+/* Style the action buttons within the table */
+table button {
+  padding: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* Style the error message */
+#errorMsg {
+  color: red;
+  font-weight: bold;
+  margin-top: 10px;
+}
